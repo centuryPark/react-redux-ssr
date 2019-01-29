@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from '../component/app';
+import '../style/index.scss';
+
 // import { Route, Switch } from 'react-router';
 // import { Provider } from 'react-redux';
 // import createBrowserHistory from 'history/createBrowserHistory';
 // import { ConnectedRouter } from 'connected-react-router';
-import App from '../component/app';
 // import configureStore from './redux/store';
-import '../style/index.scss';
-
-
 // const initState = {};
 // const history = createBrowserHistory();
 // const store = configureStore(history, initState);
 
 ReactDOM.render(
-  <App />,
+    <App />,
 document.getElementById('root'),
 );
