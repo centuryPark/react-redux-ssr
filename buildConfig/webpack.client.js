@@ -170,7 +170,7 @@ const webpackClientConfig = env => {
       pathinfo: true,
       filename: 'js/[name].[chunkhash].js',
       path: DIST_PATH,
-      publicPath: '/assets/', // publicPath 总是以斜杠(/)开头和结尾。
+      publicPath: mode === 'production' ? '/public/' : '/', // publicPath 总是以斜杠(/)开头和结尾。
       // chunkFilename: '[name].js'
     },
 
@@ -200,15 +200,15 @@ const webpackClientConfig = env => {
     webpackConfig.devServer = {
       contentBase: '../dist',
       compress: true, // 一切服务都启用gzip 压缩
-      publicPath: '/assets/',
+      // publicPath: '/assets/',
       port: 9009,
       host: '127.0.0.1',
       overlay: true,
       historyApiFallback: {
         disableDotRule: true,
-        rewrites: [
-          { from: /^\/*$/, to: '/assets/index.html' },
-        ]
+        /*rewrites: [
+          { from: /^\/!*$/, to: '/assets/index.html' },
+        ]*/
       },
     }
   }

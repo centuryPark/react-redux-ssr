@@ -1,18 +1,22 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import App from '../component/app';
+import { Provider } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { ConnectedRouter } from 'connected-react-router';
+import router from '../router'
+import configureStore from '../redux/store';
 import '../style/index.scss';
 
-// import { Route, Switch } from 'react-router';
-// import { Provider } from 'react-redux';
-// import createBrowserHistory from 'history/createBrowserHistory';
-// import { ConnectedRouter } from 'connected-react-router';
-// import configureStore from './redux/store';
-// const initState = {};
-// const history = createBrowserHistory();
-// const store = configureStore(history, initState);
+const initState = window.__INITIAL__STATE__ || {};
+const history = createBrowserHistory();
+const store = configureStore(history, initState);
 
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      {renderRoutes(router)}
+    </ConnectedRouter>
+  </Provider>,
 document.getElementById('root'),
 );

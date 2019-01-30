@@ -17,6 +17,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "axios": "^0.18.0",
+    "connected-react-router": "^6.2.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "ejs-compiled-loader": "^1.1.0",
@@ -47,6 +48,7 @@
     "isomorphic-style-loader": "^4.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
