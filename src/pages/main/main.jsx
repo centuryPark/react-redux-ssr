@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import {getMainInfo} from '../../redux/actions/main';
+import ServerWithStyle from '../../component/Hoc/ServerWithStyle';
+import styles from "./main.scss";
 
 class Main extends Component {
   componentDidMount(){
@@ -39,4 +41,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {getMainInfo, push})(Main);
+export default connect(mapStateToProps, {getMainInfo, push})(ServerWithStyle(Main, styles));

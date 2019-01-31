@@ -5,6 +5,7 @@ import {renderRoutes} from 'react-router-config';
 import {Provider} from 'react-redux';
 
 export default (store, routes, req, context) => {
+
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.path} context={context}>
@@ -12,6 +13,7 @@ export default (store, routes, req, context) => {
       </StaticRouter>
     </Provider>
   );
+
   const cssText = context.css ? context.css.join('\n') : '';
   return {
     content,

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:client": "webpack-dev-server --env.NODE_ENV=local --env.mode=development --config buildConfig/webpack.client.js",
+    "dev:server": "nodemon --watch public --exec node \"./public/server.bundle.js\"",
     "build:client": "rm -rf dist/&&webpack --env.NODE_ENV=local --env.mode=production --config buildConfig/webpack.client.js",
     "build:server": "webpack --config buildConfig/webpack.server.js --watch"
   },

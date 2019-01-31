@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getLiveList } from '../../redux/actions/live';
+import ServerWithStyle from '../../component/Hoc/ServerWithStyle';
+import styles from  './Live.scss';
 
 class Live extends Component {
   componentDidMount() {
@@ -40,4 +42,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getLiveList })(Live);
+export default connect(mapStateToProps, { getLiveList })(ServerWithStyle(Live, styles));

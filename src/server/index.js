@@ -41,7 +41,7 @@ app.get('*', (req, res) =>{
       dataTask.push(promise)
     }
   });
-  // 等待所有数据加载完成后，返回页面
+  // 等待所有数据加载完成注入store后，返回页面
   Promise.all(dataTask).then(function() {
     const context = { css: [] };
     const { content, cssText } = serverRender(store, routes, req, context);
