@@ -9,6 +9,7 @@
     "dev:server": "nodemon --watch public --exec node \"./public/server.bundle.js\"",
     "build:client": "rm -rf dist/&&webpack --env.NODE_ENV=local --env.mode=production --config buildConfig/webpack.client.js",
     "build:server": "webpack --config buildConfig/webpack.server.js --watch",
+    "start": "node ./public/server.bundle.js",
     "lint:js": "eslint --fix --ext .js --ext .jsx src/",
     "lint:style": "stylelint stylelint --syntax scss **/*.scss",
     "precommit": "lint-staged"
