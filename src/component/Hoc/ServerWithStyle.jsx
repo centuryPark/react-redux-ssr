@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 export default (DecoratedComponent, styles) => {
   class StylesComponent extends Component {
-    componentWillMount () {
+    componentWillMount() {
       if (this.props.staticContext) {
-        this.props.staticContext.css.push(styles._getCss())
+        this.props.staticContext.css.push(styles._getCss());
       }
     }
 
-    render () {
-      return <DecoratedComponent {...this.props} />
+    render() {
+      return <DecoratedComponent {...this.props} />;
     }
   }
 
@@ -18,9 +18,9 @@ export default (DecoratedComponent, styles) => {
   // 如果不拷贝静态方法，则服务端渲染是调用的loadDate方法会失败，导致首屏数据渲染失败
   // 当前添加异步组件loadable后，组件loadDate静态方法已经独立到外部文件serverLoadData.js中
   // 所以下面操作暂时不用
-  /*Object.keys(DecoratedComponent).forEach(
+  /* Object.keys(DecoratedComponent).forEach(
     k => (StylesComponent[k] = DecoratedComponent[k])
-  );*/
+  ); */
 
   return StylesComponent;
-}
+};

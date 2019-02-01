@@ -1,5 +1,3 @@
-import {getMainInfo} from '../../redux/actions/main';
+import { getMainInfo } from '../../redux/actions/main';
 
-export default (store) => {
-  return store.dispatch(getMainInfo())
-}
+export default store => store.dispatch(getMainInfo());

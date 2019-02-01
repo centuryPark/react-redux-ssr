@@ -1,5 +1,3 @@
-import {getLiveList} from '../../redux/actions/live';
+import { getLiveList } from '../../redux/actions/live';
 
-export default (store) => {
-  return store.dispatch(getLiveList())
-}
+export default store => store.dispatch(getLiveList());

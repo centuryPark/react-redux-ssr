@@ -6,7 +6,7 @@ import { routerMiddleware, connectRouter } from 'connected-react-router';
 import * as reducers from './reducers';
 
 export default (history, initialState) => {
-  if (!initialState){
+  if (!initialState) {
     initialState = {};
   }
   // redux 调试插件配置

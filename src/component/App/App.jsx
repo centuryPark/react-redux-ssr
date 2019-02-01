@@ -5,13 +5,13 @@ import router from '../../router';
 
 class App extends Component {
   render() {
-    return(
+    return (
       <div className="app">
         <BrowserRouter>
           <Fragment>{renderRoutes(router)}</Fragment>
         </BrowserRouter>
       </div>
-    )
+    );
   }
 }
 

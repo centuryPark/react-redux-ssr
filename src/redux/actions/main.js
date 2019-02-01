@@ -1,11 +1,9 @@
 export const GET_MAIN_INFO = 'GET_MAIN_INFO';
 
-export const mainInfo = (data) => {
-  return {
-    type: GET_MAIN_INFO,
-    data,
-  }
-};
+export const mainInfo = data => ({
+  type: GET_MAIN_INFO,
+  data,
+});
 
 function fetchInfo() {
   return new Promise((resolve) => {
@@ -16,14 +14,10 @@ function fetchInfo() {
         desc: '一个首屏ssr的react脚手架',
       };
       resolve(result);
-    }, 1000)
-  })
+    }, 1000);
+  });
 }
 
-export const getMainInfo = () => {
-  return (dispatch) =>{
-    return fetchInfo().then((result)=>{
-      dispatch(mainInfo(result));
-    });
-  }
-};
+export const getMainInfo = () => dispatch => fetchInfo().then((result) => {
+  dispatch(mainInfo(result));
+});

@@ -3,5 +3,5 @@ import mainInfo from './main';
 
 export {
   liveList,
-  mainInfo
-}
+  mainInfo,
+};

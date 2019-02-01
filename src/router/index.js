@@ -14,18 +14,18 @@ const ListComponent = Loadable({
 });
 
 export default [
-    {
-        path: '/main',
-        component: MainComponent,
-        exact: true,
-        loadData: mainLoadData,
-        key: 'Main'
-    },
-    {
-        path: '/list',
-        component: ListComponent,
-        loadData: liveLoadDate,
-        exact: true,
-        key: 'list'
-    }
-]
+  {
+    path: '/main',
+    component: MainComponent,
+    exact: true,
+    loadData: mainLoadData,
+    key: 'Main',
+  },
+  {
+    path: '/list',
+    component: ListComponent,
+    loadData: liveLoadDate,
+    exact: true,
+    key: 'list',
+  },
+];

@@ -1,4 +1,4 @@
-import { GET_MAIN_INFO } from '../actions/main'
+import { GET_MAIN_INFO } from '../actions/main';
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -6,4 +6,4 @@ export default (state = {}, action) => {
       return action.data;
     default: return state;
   }
-}
+};

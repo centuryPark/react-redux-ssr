@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'connected-react-router';
-import router from '../router'
+import router from '../router';
 import configureStore from '../redux/store';
 import '../style/index.scss';
 
@@ -18,5 +18,5 @@ ReactDOM.render(
       {renderRoutes(router)}
     </ConnectedRouter>
   </Provider>,
-document.getElementById('root'),
+  document.getElementById('root'),
 );
