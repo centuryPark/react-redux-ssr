@@ -9,7 +9,8 @@
     "dev:server": "nodemon --watch public --exec node \"./public/server.bundle.js\"",
     "build:client": "rm -rf dist/&&webpack --env.NODE_ENV=local --env.mode=production --config buildConfig/webpack.client.js",
     "build:server": "webpack --config buildConfig/webpack.server.js --watch",
-    "lint:js": "eslint --fix --ext .js --ext .jsx src/"
+    "lint:js": "eslint --fix --ext .js --ext .jsx src/",
+    "lint:style": "stylelint stylelint --syntax scss **/*.scss"
   },
   "keywords": [
     "ssr"
@@ -62,6 +63,8 @@
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.0",
