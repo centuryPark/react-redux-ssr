@@ -16,9 +16,11 @@ export default (DecoratedComponent, styles) => {
   // 把组件附加的属性赋给包装以后的组件（StylesComponent)
   // 使得组件DecoratedComponent上的静态方法能完全复制到StylesComponent组件
   // 如果不拷贝静态方法，则服务端渲染是调用的loadDate方法会失败，导致首屏数据渲染失败
-  Object.keys(DecoratedComponent).forEach(
+  // 当前添加异步组件loadable后，组件loadDate静态方法已经独立到外部文件serverLoadData.js中
+  // 所以下面操作暂时不用
+  /*Object.keys(DecoratedComponent).forEach(
     k => (StylesComponent[k] = DecoratedComponent[k])
-  );
+  );*/
 
   return StylesComponent;
 }

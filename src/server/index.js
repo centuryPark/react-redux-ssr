@@ -5,6 +5,7 @@ import express from 'express';
 import { matchRoutes } from 'react-router-config';
 import proxy from 'http-proxy-middleware';
 import cookieParser from 'cookie-parser';
+import Loadable from 'react-loadable';
 import serverRender from './serverRender';
 import routes from '../router';
 import configureStore from '../redux/store';
@@ -43,6 +44,7 @@ app.get('*', (req, res) =>{
   });
   // 等待所有数据加载完成注入store后，返回页面
   Promise.all(dataTask).then(function() {
+    // 保存首屏 css
     const context = { css: [] };
     const { content, cssText } = serverRender(store, routes, req, context);
     const template = fs.readFileSync('./dist/server.ejs', 'utf8');
@@ -55,8 +57,17 @@ app.get('*', (req, res) =>{
   });
 });
 
- app.use((err, req, res, next) => {
+ app.use((err, req, res) => {
   res.status(500).send('Sorry,Something goes wrong!')
 });
 
-const server = app.listen(5000);
+ // start app
+Loadable.preloadAll().then(() => {
+  app.listen(5000, (error) => {
+    if (error) {
+      return console.log('something bad happened', error);
+    }
+
+    console.log("listening on " + 5000 + "...");
+  });
+});
