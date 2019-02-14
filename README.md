@@ -43,6 +43,48 @@ yarn run build:server
 // 启动服务
 yarn start
 ```
+
+### 说明
+- 只有客户端渲染的时候才会有区分开发环境和生产环境
+- 服务端渲染时使用的代码不管时开发时还是生产中都是使用的打包后的代码
+- 一般而言，直接在该脚手架基础上开发，服务端代码如果没有特殊需求可以不更改，可完全按照传统react开发模式进行开发，生产时启动服务端node服务即可
+- 服务端渲染只有首屏，如：初次渲染或者F5刷新
+
+### 目录结构
+```
+├── README.md
+├── buildConfig webpack配置文件
+│   ├── webpack.base.js 客户端服务端共用文件
+│   ├── webpack.client.js 客户端配置（生产和开发环境通过 --env.mode=（development|production）区分）
+│   └── webpack.server.js 服务端配置文件
+├── package.json
+├── src
+│   ├── dist 打包后的文件
+│   ├── client
+│   │   ├── index.html 客户端html模版
+│   │   └── index.js 客户端 react 挂载
+│   ├── component
+│   │   ├── App 主组件
+│   │   ├── Hoc 高阶组件，使服务端渲染时可以获得当前组件的 css 样式
+│   │   └── PagesLoading 页面 loading
+│   ├── pages 路由页面
+│   ├── redux redux 相关文件
+│   ├── router react-router 主路由
+│   ├── server
+│   │   ├── index.js 服务端入口文件
+│   │   ├── server.template.ejs 服务端模版文件
+│   │   └── serverRender.js react 服务端渲染函数
+│   └── style 全局scss 文件
+├── nodemon.json
+├── .babelrc
+├── .eslintignore
+├── .eslintrc
+├── .stylelintrc styleLint 配置文件
+├── package.json
+└── postcss.config.js
+
+```
+
 ### 未来
 - 计划加入编译es7语法async await 语法
 - 加入 mock API 服务器，代替当前使用 setTimeOut 的方式 mock异步请求
